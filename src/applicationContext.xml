@@ -16,14 +16,14 @@
 	<!--只有一个作用：
 	 自动扫描,这个是使用了注解的bean位于这些包下，效果跟使用bean标签声明
 	是一样的，但是使用了注解 -->
-	<context:component-scan base-package="com_dao" />
-	<context:component-scan base-package="com_service" />
+	<context:component-scan base-package="com.yiliao.dao" />
+	<context:component-scan base-package="com.yiliao.service" />
 	
 	<!-- 配置数据源 -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://localhost:3306/dangdang"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/medical"/>
 		<property name="username" value="root"/>
 		<property name="password" value="root"/>
 	</bean>
@@ -32,7 +32,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描mappers.xml文件 -->
-		<property name="mapperLocations" value="classpath:com_mappers/*.xml"></property>
+		<property name="mapperLocations" value="classpath:com/yiliao/mappers/*.xml"></property>
 		<!-- mybatis配置文件 -->
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
 	</bean>
@@ -41,7 +41,7 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	<!-- 这个类会扫描com.haina.dao包下的接口，然后根据sessionfactory的配置
 	来生成接口的实现类，并且把生成的实现类，加入到spring的容器中 ，-->
-		<property name="basePackage" value="com_dao" />
+		<property name="basePackage" value="com.yiliao.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
 
@@ -78,7 +78,7 @@
     <!-- 配置事务切面 -->  
     <aop:config>  
         <aop:pointcut id="serviceOperation"  
-            expression="execution(* com_service.*.*(..))" />  
+            expression="execution(* com.yiliao.service.*.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />  
     </aop:config>  
 
