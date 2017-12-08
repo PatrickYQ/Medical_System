@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiliao.dao.UserDao">
+
+    <resultMap type="User" id="UserResult">
+        <result property="userId" column="userId"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="realName" column="realName"/>
+        <result property="email" column="email"/>
+        <result property="department" column="department"/>
+        <result property="characters" column="characters"/>
+        <result property="creatTime" column="creatTime"/>
+        <result property="access" column="access"/>
+        <result property="state" column="state"/>
+    </resultMap>
+
+
+    <select id="login" parameterType="User" resultMap="UserResult">
+        select * from user where username=#{username} and password=#{password}
+    </select>
+
+    <!--<select id="select" resultMap="YongHuResult">-->
+        <!--select * from yongHu-->
+    <!--</select>-->
+
+    <!--<insert id="add" parameterType="YongHu">-->
+        <!--insert into yongHu values (default,#{name},#{password},#{keshi},#{zhenshi_name},#{time},#{zhuangtai},#{juese})-->
+    <!--</insert>-->
+</mapper>
