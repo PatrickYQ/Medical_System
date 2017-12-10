@@ -264,8 +264,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   
                   <li>
                     <a href="#">
-                      <span class="label label-green"><i class="fa fa-user"></i></span>
-                      New user registered.
+                      <span class="label label-green"><i class="fa fa-yongHu"></i></span>
+                      New yongHu registered.
                       <span class="small">18 mins</span>
                     </a>
                   </li>
@@ -307,7 +307,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
               </li>
 
-              <li class="dropdown divided user" id="current-user">
+              <li class="dropdown divided yongHu" id="current-yongHu">
                 <div class="profile-photo">
                   <img src="assets/images/profile-photo.jpg" alt />
                 </div>
@@ -347,7 +347,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <li class="divider"></li>
 
                   <li>
-                    <a href="#"><i class="fa fa-user"></i> Profile</a>
+                    <a href="#"><i class="fa fa-yongHu"></i> Profile</a>
                   </li>
 
                   <li>
@@ -355,13 +355,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </li>
 
                   <li>
-                    <a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-red" id="user-inbox">3</span></a>
+                    <a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-red" id="yongHu-inbox">3</span></a>
                   </li>
 
                   <li class="divider"></li>
 
                   <li>
-                    <a href="#"><i class="fa fa-power-off"></i> Logout</a>
+                    <a href="user/login.do"><i class="fa fa-power-off"></i> Logout</a>
                   </li>
                 </ul>
               </li>
@@ -852,7 +852,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                   <!-- tile header -->
                   <div class="tile-header">
-                    <h1><strong>添加</strong> 信息</h1>
+                    <h1><strong>添加</strong>用户信息</h1>
                     <div class="controls">
                       <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
                       <a href="#" class="remove"><i class="fa fa-times"></i></a>
@@ -863,77 +863,95 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <!-- tile body -->
                   <div class="tile-body">
                     
-                    <form class="form-horizontal" role="form" parsley-validate id="basicvalidations">
+                    <form action="user/adduser.do" class="form-horizontal" role="form" parsley-validate id="basicvalidations">
                       
                       <div class="form-group">
                         <label for="fullname" class="col-sm-4 control-label">登录名 *</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="申请日期" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">
+                          <input type="text"  name="username" class="form-control" id="username" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">
                         </div>
                       </div>
 					  
 
                       <div class="form-group">
-                        <label for="email" class="col-sm-4 control-label">密码 *</label>
+                        <label for="password" class="col-sm-4 control-label">密码 *</label>
                         <div class="col-sm-8">
-                          <input type="email" class="form-control" id="email" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-type="email" parsley-validation-minlength="1">
+                          <input type="password" name="password" class="form-control" id="password" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-type="email" parsley-validation-minlength="1">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label for="password" class="col-sm-4 control-label">密码确认 *</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="password" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1">
+                          <input type="password" name="" class="form-control" id="passwordconfirm" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="passwordconfirm" class="col-sm-4 control-label">真实姓名 *</label>
+                        <div class="col-sm-8">
+                          <input type="text" name="realName" class="form-control" id="realName" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="1">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="email" class="col-sm-4 control-label">email *</label>
+                        <div class="col-sm-8">
+                          <input type="email" name="email" class="form-control" id="email" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-type="email" parsley-validation-minlength="1">
                         </div>
                       </div>
 
                           <div class="form-group">
                         <label for="input08" class="col-sm-4 control-label">科室 *</label>
                         <div class="col-sm-8" id="selectbox2">
-                          <select multiple class="chosen-select chosen-transparent form-control" id="input08" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox2">
-                            <option value="11">1</option>
-                            <option value="222">2</option>
-                            <option value="33">3</option>
-                            <option value="44">4</option>
-                            <option value="55">5</option>
+                          <select name="department" multiple class="chosen-select chosen-transparent form-control" id="input08" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox2">
+                            <option value="骨科">骨科</option>
+                            <option value="内科">内科</option>
+                            <option value="外科">外科</option>
+                            <option value="呼吸科">呼吸科</option>
+                            <option value="血液科">血液科</option>
+                            <option value="五官科">五官科</option>
+                            <option value="牙科">牙科</option>
+                            <option value="二科">儿科</option>
+                            <option value="妇科">妇科</option>
                           </select>
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label for="passwordconfirm" class="col-sm-4 control-label">真实姓名*</label>
+                        <label for="passwordconfirm" class="col-sm-4 control-label">角色*</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="passwordconfirm" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="#password">
+                          <input type="text" class="form-control" id="characters" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="#password">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="input08" class="col-sm-4 control-label">权限列表 *</label>
+                        <div class="col-sm-8" id="selectbox3">
+                          <select name="access" multiple class="chosen-select chosen-transparent form-control" id="input08" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox2">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                          </select>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label for="passwordconfirm" class="col-sm-4 control-label">状态*</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="passwordconfirm" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="#password">
+                          <input type="text" name="state" class="form-control" id="state" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="#password">
                         </div>
                       </div>
-
-                      <div class="form-group">
-                        <label for="passwordconfirm" class="col-sm-4 control-label">权限列表*</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="passwordconfirm" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="#password">
-                        </div>
-                      </div>
-
-					     <div class="form-group">
-                        <label for="passwordconfirm" class="col-sm-4 control-label">审核列表*</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="passwordconfirm" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="#password">
-                        </div>
-                      </div>
+					     <%--<div class="form-group">--%>
+                        <%--<label for="passwordconfirm" class="col-sm-4 control-label">审核列表*</label>--%>
+                        <%--<div class="col-sm-8">--%>
+                          <%--<input type="text" class="form-control" id="passwordconfirm" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="#password">--%>
+                        <%--</div>--%>
+                      <%--</div>--%>
   
-                           <div class="form-group">
-                        <label for="passwordconfirm" class="col-sm-4 control-label">角色*</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="passwordconfirm" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="#password">
-                        </div>
-                      </div>
+
 					  
                       <div class="form-group form-footer footer-black-transparent">
                         <div class="col-sm-offset-4 col-sm-8">
