@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yiliao.dao.UserDao">
 
+
     <resultMap type="User" id="UserResult">
         <result property="userId" column="userId"/>
         <result property="username" column="username"/>
@@ -22,11 +23,14 @@
         select * from user where username=#{username} and password=#{password}
     </select>
 
+    <select id="selectAccess" resultType="java.lang.Integer">
+        SELECT access FROM user WHERE username=${username} and password=${password}
+    </select>
+
     <!--<select id="select" resultMap="YongHuResult">-->
         <!--select * from yongHu-->
     <!--</select>-->
 
-    <!--<insert id="add" parameterType="YongHu">-->
-        <!--insert into yongHu values (default,#{name},#{password},#{keshi},#{zhenshi_name},#{time},#{zhuangtai},#{juese})-->
-    <!--</insert>-->
-</mapper>
+    <insert id="add" parameterType="User">
+        insert into user values (default,#{username},#{password},#{realName},#{email},#{department},#{characters},default,#{access},#{state})
+    </insert>

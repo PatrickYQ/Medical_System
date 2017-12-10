@@ -12,7 +12,7 @@ public class User {
   private String email;
   private String department;
   private String characters;
-  private java.sql.Date creatTime;
+  private Object creatTime;
   private int access;
   private String state;
 
@@ -73,11 +73,11 @@ public class User {
     this.characters = characters;
   }
 
-  public Date getCreatTime() {
+  public Object getCreatTime() {
     return creatTime;
   }
 
-  public void setCreatTime(Date creatTime) {
+  public void setCreatTime(Object creatTime) {
     this.creatTime = creatTime;
   }
 
