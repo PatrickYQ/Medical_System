@@ -34,4 +34,3 @@
     <insert id="add" parameterType="User">
         insert into user values (default,#{username},#{password},#{realName},#{email},#{department},#{characters},default,#{access},#{state})
     </insert>
-</mapper>
