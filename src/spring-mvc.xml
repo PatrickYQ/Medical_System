@@ -17,7 +17,7 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd"> 
 
 	<!-- 使用注解的包，包括子集 -->
-	<context:component-scan base-package="com_controller" />
+	<context:component-scan base-package="com.yiliao.controller" />
 	<!-- 因为jsp被放入了web-inf不能直接访问，所以需要给每个jsp配置访问路径，下面配置方式，地址栏输入http://localhost:8080/MybatisPro05/login.do
 	就会请求到一个view的名字叫做login，springmvc会话login这个视图的逻辑名，前面加上前缀jsp，后缀是.jsp就找到我们的位于web-inf/jsp/login.jsp
 	给7个jsp每一个配置一个请求路径 -->
@@ -34,5 +34,3 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-
-</beans>  
