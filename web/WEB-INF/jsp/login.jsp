@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
     <!-- Bootstrap -->
-    <link href="assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+      <link href="assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/vendor/bootstrap-checkbox.css">
 

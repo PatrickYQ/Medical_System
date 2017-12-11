@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -49,11 +50,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
       <!-- Make page fluid -->
       <div class="row">
-        
 
 
-
-
+        <c:if test="${sessionScope.access eq 5}">
         <!-- Fixed navbar -->
         <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
           
@@ -789,7 +788,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         </div>
         <!-- Fixed navbar end -->
-        
+        </c:if>
 
 
 

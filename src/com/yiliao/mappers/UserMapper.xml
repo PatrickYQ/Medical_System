@@ -23,8 +23,8 @@
         select * from user where username=#{username} and password=#{password}
     </select>
 
-    <select id="selectAccess" resultType="java.lang.Integer">
-        SELECT access FROM user WHERE username=${username} and password=${password}
+    <select id="selectAccess" resultType="int">
+        SELECT access FROM user WHERE username=#{username} and password=#{password}
     </select>
 
     <!--<select id="select" resultMap="YongHuResult">-->
