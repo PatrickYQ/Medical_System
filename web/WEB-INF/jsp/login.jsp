@@ -8,8 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
   	<base href="<%=basePath%>">
-    <script type="text/javascript">
-    </script>
+
     <title>Minimal 1.0 - Login Page</title>
 	<link rel="icon" href="assets/images/title.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

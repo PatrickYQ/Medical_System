@@ -49,4 +49,5 @@ public class UserController {
         userService.add(user);
         return "login";
     }
+
 }
