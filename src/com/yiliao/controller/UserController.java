@@ -3,11 +3,10 @@ package com.yiliao.controller;
 import com.yiliao.entity.User;
 import com.yiliao.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  * Created with IDEA
@@ -22,16 +21,13 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/login")
-    public String login(User user, HttpServletRequest request) {
+    public String login(User user, Model model) {
         User userresult = userService.login(user);
         if (userresult != null) {
             //获取用户权限
-            int access = userService.selectAccess();
-            HttpSession session = request.getSession();
-            //存到session
-            session.setAttribute("access", access);
-            System.out.println(user.getUsername());
-            System.out.println(user.getPassword());
+            int access = userService.selectAccess(user);
+            System.out.println(user.getAccess());
+            model.addAttribute("access", access);
             return "index";
         } else {
             return "login";
@@ -45,7 +41,7 @@ public class UserController {
 
     @RequestMapping("adduser")
     public String addUser(User user) {
-        System.out.println(user.getRealName());
+        System.out.println(user.toString());
         userService.add(user);
         return "login";
     }

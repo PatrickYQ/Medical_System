@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="row">
 
 
-        <c:if test="${sessionScope.access eq 5}">
+        <c:if test="${access eq 5}">
         <!-- Fixed navbar -->
         <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
           
@@ -865,7 +865,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <form action="user/adduser.do" class="form-horizontal" role="form" parsley-validate id="basicvalidations">
                       
                       <div class="form-group">
-                        <label for="fullname" class="col-sm-4 control-label">登录名 *</label>
+                        <label for="show-fullname" class="col-sm-4 control-label">登录名 *</label>
                         <div class="col-sm-8">
                           <input type="text"  name="username" class="form-control" id="username" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">
                         </div>
@@ -875,7 +875,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       <div class="form-group">
                         <label for="password" class="col-sm-4 control-label">密码 *</label>
                         <div class="col-sm-8">
-                          <input type="password" name="password" class="form-control" id="password" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-type="email" parsley-validation-minlength="1">
+                          <input type="password" name="password" class="form-control" id="password" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-type="" parsley-validation-minlength="1">
                         </div>
                       </div>
 
@@ -920,14 +920,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       <div class="form-group">
                         <label for="passwordconfirm" class="col-sm-4 control-label">角色*</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="characters" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="#password">
+                          <input type="text" name="characters" class="form-control" id="characters" parsley-trigger="change" parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1" parsley-equalto="#password">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label for="input08" class="col-sm-4 control-label">权限列表 *</label>
                         <div class="col-sm-8" id="selectbox3">
-                          <select name="access" multiple class="chosen-select chosen-transparent form-control" id="input08" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox2">
+                          <select name="access" multiple class="chosen-select chosen-transparent form-control" id="" parsley-trigger="change" parsley-required="true" parsley-error-container="#selectbox2">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
