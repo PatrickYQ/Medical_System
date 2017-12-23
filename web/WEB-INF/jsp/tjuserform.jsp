@@ -815,8 +815,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="breadcrumbs">
               <ol class="breadcrumb">
                 <li>You are here</li>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="添加用户表单.html">添加用户表单</a></li>
+                <li><a href="user/login.do">首页</a></li>
                 <li class="active">添加用户表单</li>
               </ol>
             </div>
@@ -862,7 +861,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <!-- tile body -->
                   <div class="tile-body">
                     
-                    <form action="user/adduser.do" class="form-horizontal" role="form" parsley-validate id="basicvalidations">
+                    <form action="user/adduser.do" class="form-horizontal" role="form" parsley-validate id="basicvalidations" method="post">
                       
                       <div class="form-group">
                         <label for="show-fullname" class="col-sm-4 control-label">登录名 *</label>
